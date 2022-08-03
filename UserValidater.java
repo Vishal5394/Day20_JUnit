@@ -39,6 +39,7 @@ public class UserValidater {
 	        validatePassRule1(password);
 	        validatePassRule2(password);
 	        validatePassRule3(password);
+	        validatePassRule4(password);
 	        
 	  }
 	  boolean validatePassRule1(String password){
@@ -71,6 +72,16 @@ public class UserValidater {
 	        }
 	        return isValid;
 	    }
+	  boolean validatePassRule4(String password){
+	        Pattern pattern=Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$");
+	        Boolean isValid=pattern.matcher(password).matches();
+	        if (isValid){
+	            System.out.println("Rule4 Pass..Valid Password");
+	        }else {
+	            System.out.println("Rule4 Fail...Invalid Password!\n password must have one special character");
+	        }
+	        return isValid;
+	    }
 	  
 	  
 	public static void main(String[] args) {
@@ -94,7 +105,7 @@ public class UserValidater {
         regex.validateMobileNo(mobileNo);*/
 	    
 	    System.out.println("\nPassword Rule1 – minimum 8 Characters"+"\nPassword Rule2 – Should have at least 1 Upper Case"
-	    						+ "\\nPassword Rule3 – at least 1 numeric number");
+	    						+ "\\nPassword Rule3 – at least 1 numeric number" + "\n Password Rule4 – at least 1 special character");
 		System.out.println("Enter Password:");
 		String password=scanner.next();
 		regex.validatePassword(password);
