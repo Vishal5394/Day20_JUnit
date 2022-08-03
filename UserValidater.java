@@ -22,10 +22,22 @@ public class UserValidater {
 	        else
 	            System.out.println("email is not valid => "+email);
 	    }
+	  
+	  public void validateMobileNo(String mobileNo){
+	        Pattern pattern=Pattern.compile("^[0-9]{2}[0-9]{10}");
+	        boolean isValid = pattern.matcher(mobileNo).matches();
+	        if (isValid){
+	            System.out.println("mobile is valid");
+	        }
+	        else {
+	            System.out.println("mobile is not valid");
+	        }
+	  }
+	  
 	public static void main(String[] args) {
 		UserValidater regex=new UserValidater();
 	    Scanner scanner=new Scanner(System.in);
-	    System.out.println("Enter first name :");
+	    /*System.out.println("Enter first name :");
 	    String firstName=scanner.next();
 	    regex.validateName(firstName);
 	    
@@ -36,8 +48,12 @@ public class UserValidater {
         
         System.out.println("Enter email: ");
         String email=scanner.next();
-        regex.validateEmail(email);
- }
+        regex.validateEmail(email);*/
+        
+        System.out.println("Enter mobile no as per format: (e.g. 911234567890) ");
+        String mobileNo=scanner.next();
+        regex.validateMobileNo(mobileNo);
+		}
 	}
 
 
