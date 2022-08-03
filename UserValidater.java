@@ -19,6 +19,11 @@ public class UserValidater {
 	    System.out.println("Enter first name :");
 	    String firstName=scanner.next();
 	    regex.validateName(firstName);
+	    
+
+        System.out.println("\n Enter last name: ");
+        String lastName=scanner.next();
+        regex.validateName(lastName);
  }
 	}
 
