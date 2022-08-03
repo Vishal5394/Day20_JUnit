@@ -102,13 +102,26 @@ public class UserValidater {
         
         System.out.println("Enter mobile no as per format: (e.g. 911234567890) ");
         String mobileNo=scanner.next();
-        regex.validateMobileNo(mobileNo);*/
+        regex.validateMobileNo(mobileNo);
 	    
 	    System.out.println("\nPassword Rule1 – minimum 8 Characters"+"\nPassword Rule2 – Should have at least 1 Upper Case"
 	    						+ "\\nPassword Rule3 – at least 1 numeric number" + "\n Password Rule4 – at least 1 special character");
 		System.out.println("Enter Password:");
 		String password=scanner.next();
-		regex.validatePassword(password);
+		regex.validatePassword(password);*/
+		
+		 System.out.println("\nValid Emails: ");
+	        String[] validEmail={"abc@yahoo.com","abc-100@yahoo.com","abc.100@yahoo.com","abc111@abc.com","abc-100@abc.net","abc.100@abc.com.au","abc@1.com","abc@gmail.com.com","abc+100@gmail.com"};
+	        for (String s : validEmail) {
+	            regex.validateEmail(s);
+	        }
+
+	        System.out.println("\nInValid Emails: ");
+	        String[] inValidEmail={"abc","abc@.com.my","abc123@gmail.a","abc123@.com","abc123@.com.com","abc()*@gmail.com","abc@%*.com","abc..2002@gmail.com","abc.@gmail.com","abc@abc@gmail.com","abc@gmail.com.1a","abc@gmail.com.aa.au"};
+	        for (String s : inValidEmail) {
+	            regex.validateEmail(s);
+	        }
+	    
 		}
 	}
 
