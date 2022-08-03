@@ -36,7 +36,9 @@ public class UserValidater {
 	  
 	  public void validatePassword(String password){
 	        boolean isValid=true;
+	        validatePassRule1(password);
 	        validatePassRule2(password);
+	        validatePassRule3(password);
 	        
 	  }
 	  boolean validatePassRule1(String password){
@@ -56,6 +58,16 @@ public class UserValidater {
 	            System.out.println("Rule2 Pass..Valid Password");
 	        }else {
 	            System.out.println("Rule2 Fail..Invalid Password! \npassword must have at least one uppercase letter");
+	        }
+	        return isValid;
+	    }
+	  Boolean validatePassRule3(String password){
+	        Pattern pattern=Pattern.compile("^(?=.*[A-Z])(?=.*[0-9])[\\S]{8,20}$");
+	        Boolean isValid=pattern.matcher(password).matches();
+	        if (isValid){
+	            System.out.println("Rule3 Pass..Valid Password");
+	        }else {
+	            System.out.println("Rule3 Fail...Invalid Password!\n password must have at least numeric letter");
 	        }
 	        return isValid;
 	    }
@@ -81,7 +93,8 @@ public class UserValidater {
         String mobileNo=scanner.next();
         regex.validateMobileNo(mobileNo);*/
 	    
-	    System.out.println("\nPassword Rule1 – minimum 8 Characters"+"\nPassword Rule2 – Should have at least 1 Upper Case");
+	    System.out.println("\nPassword Rule1 – minimum 8 Characters"+"\nPassword Rule2 – Should have at least 1 Upper Case"
+	    						+ "\\nPassword Rule3 – at least 1 numeric number");
 		System.out.println("Enter Password:");
 		String password=scanner.next();
 		regex.validatePassword(password);
